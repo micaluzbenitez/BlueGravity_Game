@@ -12,10 +12,11 @@ namespace BlueGravity.Inventory
         [SerializeField, Tooltip("Leave empty if it don't need")] private Item toolToPickUp;
 
         private bool collidingPlayer = false;
+        private bool pickable;
 
         private void Update()
         {
-            if (collidingPlayer && Input.GetKeyDown(KeyCode.E)) CheckPickUp();
+            if (collidingPlayer && Input.GetKeyDown(KeyCode.E)) PickUpItem();
         }
 
         #region Player_Detection
@@ -40,22 +41,27 @@ namespace BlueGravity.Inventory
         }
         #endregion
 
-        private void CheckPickUp()
+        private void PickUpItem()
+        {
+            if (!pickable) return;
+
+            InventoryManager.Instance.AddItem(item);
+            Destroy(gameObject);
+        }
+
+        public bool CheckPickUp()
         {
             if (toolToPickUp)
             {
-                if (PlayerInventory.Instance.currentTool == toolToPickUp) PickUpItem();
+                if (PlayerInventory.Instance.currentTool == toolToPickUp) pickable = true;
+                else pickable = false;
             }
             else
             {
-                PickUpItem();
+                pickable = true;
             }
-        }
 
-        private void PickUpItem()
-        {            
-            InventoryManager.Instance.AddItem(item);
-            Destroy(gameObject);
+            return pickable;
         }
     }
 }
