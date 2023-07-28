@@ -23,7 +23,17 @@ namespace BlueGravity.Inventory
             if (collision.gameObject.CompareTag("Player")) collidingPlayer = true;
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player")) collidingPlayer = true;
+        }
+
         private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player")) collidingPlayer = false;
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player")) collidingPlayer = false;
         }
