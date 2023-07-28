@@ -26,21 +26,16 @@ namespace BlueGravity.Inventory.Seller
             // Load inventory content
             foreach (var item in items)
             {
-                ListItem(item);
+                GameObject obj = Instantiate(inventoryItemPrefab, itemContent);
+
+                var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
+                var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
+
+                itemName.text = item.itemName;
+                itemIcon.sprite = item.icon;
             }
 
             SetInventoryItems();
-        }
-
-        private void ListItem(Item item)
-        {
-            GameObject obj = Instantiate(inventoryItemPrefab, itemContent);
-
-            var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
-            var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
-
-            itemName.text = item.itemName;
-            itemIcon.sprite = item.icon;
         }
 
         private void SetInventoryItems()
