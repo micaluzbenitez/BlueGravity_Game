@@ -11,7 +11,7 @@ namespace BlueGravity.Inventory
         [Header("UI")]
         [SerializeField] private Button removeButton;
 
-        private Item item;
+        [SerializeField] private Item item;
 
         public void AddItem(Item newItem)
         {
@@ -26,7 +26,7 @@ namespace BlueGravity.Inventory
 
         public void UseItem()
         {
-            if (SellerInventory.Instance.gameObject.activeSelf)
+            if (SellerInventory.Instance.openInventory)
             {
                 if (SellerInventory.Instance.GetCoins() < item.value) return;
 

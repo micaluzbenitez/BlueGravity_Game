@@ -19,6 +19,8 @@ namespace BlueGravity.Entities.Seller
 
         private bool collidingPlayer = false;
 
+        public bool openInventory { get; private set; }
+
         private void Update()
         {
             if (collidingPlayer && Input.GetKeyDown(KeyCode.E))
@@ -62,11 +64,13 @@ namespace BlueGravity.Entities.Seller
         {
             sellerInventory.SetActive(true);
             SellerInventoryManager.Instance.UpdateCoinsUI(coins);
+            openInventory = true;
         }
 
         private void CloseInventory()
         {
             sellerInventory.SetActive(false);
+            openInventory = false;
         }
 
         public int GetCoins()

@@ -6,7 +6,7 @@ namespace BlueGravity.Inventory.Seller
 {
     public class SellerInventoryItemController : MonoBehaviour
     {
-        private Item item;
+        [SerializeField] private Item item;
 
         public void AddItem(Item newItem)
         {
