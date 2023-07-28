@@ -20,6 +20,6 @@ public class ItemEditor : Editor
 
         Texture2D texture = AssetPreview.GetAssetPreview(item.icon);
         GUILayout.Label("", GUILayout.Height(80), GUILayout.Width(80));
-        GUI.DrawTexture(new Rect(20, 130, 50, 50), texture);
+        GUI.DrawTexture(new Rect(20, 110, 50, 50), texture);
     }
 }

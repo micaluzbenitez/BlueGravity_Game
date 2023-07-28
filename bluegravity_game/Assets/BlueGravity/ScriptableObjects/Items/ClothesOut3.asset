@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04affb8105f78f24c93b999a7ca732f5, type: 3}
+  m_Name: ClothesOut3
+  m_EditorClassIdentifier: 
+  id: 12
+  itemName: Out3
+  value: 40
+  icon: {fileID: -330637305, guid: 8d6aecd79327a5443a21c582ddba77bd, type: 3}
+  itemType: 0
+  clothes: {fileID: 11400000, guid: b5e13617a76c8784a9aa2a4f1e3402c5, type: 2}

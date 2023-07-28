@@ -1,3 +1,4 @@
+using BlueGravity.Inventory.ClothesInventory;
 using UnityEngine;
 
 namespace BlueGravity.Inventory
@@ -15,7 +16,9 @@ namespace BlueGravity.Inventory
         public int id;
         public string itemName;
         public int value;
-        public ITEM_TYPE itemType;
         public Sprite icon;
+
+        [Space(80)] public ITEM_TYPE itemType;
+        public Clothes clothes;
     }
 }

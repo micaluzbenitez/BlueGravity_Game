@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04affb8105f78f24c93b999a7ca732f5, type: 3}
+  m_Name: ClothesHar2
+  m_EditorClassIdentifier: 
+  id: 7
+  itemName: Har2
+  value: 15
+  icon: {fileID: 244688083, guid: 86515a3c3a1f16740b8877e6d9a2bc2a, type: 3}
+  itemType: 0
+  clothes: {fileID: 11400000, guid: c45261c0ad866fe4da7e40f15d67656e, type: 2}

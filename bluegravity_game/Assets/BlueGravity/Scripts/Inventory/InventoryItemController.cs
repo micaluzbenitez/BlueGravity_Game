@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using BlueGravity.Entities.Player;
+using BlueGravity.Inventory.ClothesInventory;
 
 namespace BlueGravity.Inventory
 {
@@ -27,11 +28,13 @@ namespace BlueGravity.Inventory
             switch (item.itemType)
             {
                 case Item.ITEM_TYPE.Clothes:
-                    PlayerInventory.Instance.WearClothes();
+                    PlayerInventory.Instance.WearClothes(item);
                     break;
+
                 case Item.ITEM_TYPE.Tool:
                     PlayerInventory.Instance.EquipTool(item);
                     break;
+
                 case Item.ITEM_TYPE.Material:
                     break;
             }
