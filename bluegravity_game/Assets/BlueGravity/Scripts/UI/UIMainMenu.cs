@@ -6,8 +6,8 @@ namespace BlueGravity.UI
     public class UIMainMenu : MonoBehaviour
     {
         [Header("Scenes")]
-        [SerializeField] private string gameSceneName = "";
-        [SerializeField] private string creditsSceneName = "";
+        [SerializeField] private string gameSceneName;
+        [SerializeField] private string creditsSceneName;
 
         public void LoadGameScene()
         {

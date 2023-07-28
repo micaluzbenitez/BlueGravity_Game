@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04affb8105f78f24c93b999a7ca732f5, type: 3}
+  m_Name: Scythe
+  m_EditorClassIdentifier: 
+  id: 4
+  itemName: Axe
+  value: 150
+  itemType: 1
+  icon: {fileID: -1113309678, guid: b8a28f5b877a58f48a4810d21e8e4014, type: 3}

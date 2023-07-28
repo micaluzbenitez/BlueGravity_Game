@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlueGravity.Entities.Player
@@ -8,11 +6,11 @@ namespace BlueGravity.Entities.Player
     public class PlayerMovement : MonoBehaviour
     {
         [Header("Movement")]
-        [SerializeField] private float speed = 0;
+        [SerializeField] private float speed;
 
-        private Rigidbody2D playerRigidbody = null;
-        private Animator animator = null;
-        private Vector3 movementVector = Vector3.zero;
+        private Rigidbody2D playerRigidbody;
+        private Animator animator;
+        private Vector3 movementVector;
 
         private void Awake()
         {

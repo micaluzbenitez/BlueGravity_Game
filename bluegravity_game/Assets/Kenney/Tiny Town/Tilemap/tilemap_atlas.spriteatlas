@@ -310,5 +310,5 @@ SpriteAtlas:
   - tilemap_packed_42
   - tilemap_packed_11
   m_RenderDataMap: {}
-  m_Tag: New Sprite Atlas
+  m_Tag: tilemap_atlas
   m_IsVariant: 0

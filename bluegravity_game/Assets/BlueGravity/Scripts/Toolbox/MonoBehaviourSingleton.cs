@@ -18,7 +18,7 @@ namespace BlueGravity.Toolbox
                 return;
             }
             Instance = this as T;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
     }
 }
