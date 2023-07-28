@@ -1,5 +1,4 @@
 using UnityEngine;
-using static BlueGravity.Inventory.Item;
 
 namespace BlueGravity.Inventory.ClothesInventory
 {
@@ -14,5 +13,6 @@ namespace BlueGravity.Inventory.ClothesInventory
         }
 
         public CLOTHES_TYPE clothesType;
+        public GameObject prefab;
     }
 }

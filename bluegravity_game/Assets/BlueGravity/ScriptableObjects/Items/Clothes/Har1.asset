@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Har1
   m_EditorClassIdentifier: 
   clothesType: 1
+  prefab: {fileID: 2373313869638649576, guid: 190adc9592fcee5418502e14524afbb7, type: 3}

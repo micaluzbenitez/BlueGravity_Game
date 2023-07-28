@@ -53,7 +53,7 @@ namespace BlueGravity.Entities.Player
 
         private void UpdateAnimation()
         {
-            if (animator != null)
+            if (animator)
             {
                 if (movementVector.magnitude > 0)
                 {
@@ -67,6 +67,11 @@ namespace BlueGravity.Entities.Player
                     animator.SetBool("IsMoving", false);
                 }
             }
+        }
+
+        public Vector2 GetMovementVector()
+        {
+            return movementVector;
         }
     }
 }
