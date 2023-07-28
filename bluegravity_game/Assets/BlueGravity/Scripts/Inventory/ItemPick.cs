@@ -7,9 +7,21 @@ namespace BlueGravity.Inventory
         [Header("Item")]
         [SerializeField] private Item item;
 
-        private void OnMouseDown()
+        private bool collidingPlayer = false;
+
+        private void Update()
         {
-            PickUpItem();
+            if (collidingPlayer && Input.GetKeyDown(KeyCode.E)) PickUpItem();
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player")) collidingPlayer = true;
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player")) collidingPlayer = false;
         }
 
         private void PickUpItem()
