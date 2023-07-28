@@ -3,21 +3,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using BlueGravity.Toolbox;
-using static UnityEditor.Progress;
 
-namespace BlueGravity.Inventory
+namespace BlueGravity.Inventory.Seller
 {
-    public class InventoryManager : MonoBehaviourSingleton<InventoryManager>
+    public class SellerInventoryManager : MonoBehaviourSingleton<SellerInventoryManager>
     {
         [Header("Inventory")]
         [SerializeField] private GameObject inventoryItemPrefab;
         [SerializeField] private Transform itemContent;
-        [SerializeField] private Toggle enableRemove;
 
-        private List<Item> items = new List<Item>();
-        private InventoryItemController[] inventoryItemControllers;
+        [SerializeField] private List<Item> items = new List<Item>();
+        private SellerInventoryItemController[] sellerInventoryItemControllers;
 
-        public void OnEnable()
+        private void OnEnable()
         {
             // Clean inventory content
             foreach (Transform item in itemContent)
@@ -40,20 +38,18 @@ namespace BlueGravity.Inventory
 
             var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
             var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
-            var removeButton = obj.transform.Find("Remove Button").GetComponent<Button>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
-            removeButton.gameObject.SetActive(enableRemove.isOn);
         }
 
         private void SetInventoryItems()
         {
-            inventoryItemControllers = itemContent.GetComponentsInChildren<InventoryItemController>();
+            sellerInventoryItemControllers = itemContent.GetComponentsInChildren<SellerInventoryItemController>();
 
             for (int i = 0; i < items.Count; i++)
             {
-                inventoryItemControllers[i].AddItem(items[i]);
+                sellerInventoryItemControllers[i].AddItem(items[i]);
             }
         }
 
@@ -65,14 +61,6 @@ namespace BlueGravity.Inventory
         public void RemoveItem(Item item)
         {
             items.Remove(item);
-        }
-
-        public void EnableItemsRemove()
-        {
-            foreach (Transform item in itemContent)
-            {
-                item.Find("Remove Button").gameObject.SetActive(enableRemove.isOn);
-            }
         }
     }
 }

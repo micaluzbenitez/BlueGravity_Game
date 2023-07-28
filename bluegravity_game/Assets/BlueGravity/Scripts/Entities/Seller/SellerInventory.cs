@@ -1,19 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-namespace BlueGravity.Entities
+namespace BlueGravity.Entities.Seller
 {
-    public class Seller : MonoBehaviour
+    public class SellerInventory : MonoBehaviour
     {
         [Header("UI")]
         [SerializeField] private GameObject UI;
+
+        [Header("Inventory")]
+        [SerializeField] private GameObject sellerInventory;
+
+        [Header("Events")]
+        [SerializeField] private UnityEvent OnOpenInventory;
+        [SerializeField] private UnityEvent OnCloseInventory;
 
         private bool collidingPlayer = false;
 
         private void Update()
         {
-            if (collidingPlayer && Input.GetKeyDown(KeyCode.E)) OpenInventory();
+            if (collidingPlayer && Input.GetKeyDown(KeyCode.E))
+            {
+                if (!sellerInventory.activeSelf) OpenInventory();
+                else CloseInventory();
+            }
+
             UpdateUI();
         }
 
@@ -47,7 +58,14 @@ namespace BlueGravity.Entities
 
         private void OpenInventory()
         {
-            Debug.Log("open inventory");
+            sellerInventory.SetActive(true);
+            OnOpenInventory?.Invoke();
+        }
+
+        private void CloseInventory()
+        {
+            sellerInventory.SetActive(false);
+            OnCloseInventory?.Invoke();
         }
     }
 }

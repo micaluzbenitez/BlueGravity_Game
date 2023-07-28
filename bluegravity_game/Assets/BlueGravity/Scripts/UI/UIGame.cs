@@ -34,8 +34,9 @@ namespace BlueGravity.UI
 
         private void TurnOnInventory()
         {
+            if (Time.timeScale == 0) return;
+
             inventory.SetActive(!inventory.activeSelf);
-            InventoryManager.Instance.ListItems();
 
             if (inventory.activeSelf) PauseGame();
             else UnpauseGame();
