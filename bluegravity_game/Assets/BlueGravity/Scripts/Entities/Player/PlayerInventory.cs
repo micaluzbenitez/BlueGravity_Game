@@ -24,6 +24,10 @@ namespace BlueGravity.Entities.Player
 
         public Action<Item> OnToolEquiped;
 
+        private GameObject outClothesInstantiate;
+        private GameObject harClothesInstantiate;
+        private GameObject hatClothesInstantiate;
+
         public override void Awake()
         {
             base.Awake();
@@ -42,26 +46,40 @@ namespace BlueGravity.Entities.Player
             {
                 case Clothes.CLOTHES_TYPE.Out:
                     currentOutClothes = item.clothes.prefab;
-                    EquipClothes(currentOutClothes);
+                    EquipClothes(item, currentOutClothes);
                     break;
                 case Clothes.CLOTHES_TYPE.Har:
                     currentHarClothes = item.clothes.prefab;
-                    EquipClothes(currentHarClothes);
+                    EquipClothes(item, currentHarClothes);
                     break;
                 case Clothes.CLOTHES_TYPE.Hat:
                     currentHatClothes = item.clothes.prefab;
-                    EquipClothes(currentHatClothes);
+                    EquipClothes(item, currentHatClothes);
                     break;
             }
         }
 
-        public void EquipClothes(GameObject clothes)
+        public void EquipClothes(Item item, GameObject clothes)
         {
-            //if (clothes) clothes.GetComponent<ClothesController>().RemoveClothes();
-
             GameObject obj = Instantiate(clothes);
             obj.transform.SetParent(transform);
             obj.transform.localPosition = Vector2.zero;
+
+            switch (item.clothes.clothesType)
+            {
+                case Clothes.CLOTHES_TYPE.Out:
+                    if (outClothesInstantiate) Destroy(outClothesInstantiate);
+                    outClothesInstantiate = obj;
+                    break;
+                case Clothes.CLOTHES_TYPE.Har:
+                    if (harClothesInstantiate) Destroy(harClothesInstantiate);
+                    harClothesInstantiate = obj;
+                    break;
+                case Clothes.CLOTHES_TYPE.Hat:
+                    if (hatClothesInstantiate) Destroy(hatClothesInstantiate);
+                    hatClothesInstantiate = obj;
+                    break;
+            }
 
             ClothesController clothesController = obj.GetComponent<ClothesController>();
             clothesController.SetPlayerMovement(playerMovement);
