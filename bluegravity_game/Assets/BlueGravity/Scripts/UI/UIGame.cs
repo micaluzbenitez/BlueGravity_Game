@@ -35,7 +35,7 @@ namespace BlueGravity.UI
         private void TurnOnInventory()
         {
             inventory.SetActive(!inventory.activeSelf);
-            InventoryManager.Instance.OpenInventory();
+            PlayerInventory.Instance.OpenInventory();
         }
 
         public void UpdateCurrentTool(Item tool)

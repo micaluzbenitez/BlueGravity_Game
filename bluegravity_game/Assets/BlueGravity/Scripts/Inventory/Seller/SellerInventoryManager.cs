@@ -8,6 +8,9 @@ namespace BlueGravity.Inventory.Seller
 {
     public class SellerInventoryManager : MonoBehaviourSingleton<SellerInventoryManager>
     {
+        [Header("Coins")]
+        [SerializeField] private TMP_Text coinsText;
+
         [Header("Inventory")]
         [SerializeField] private GameObject inventoryItemPrefab;
         [SerializeField] private Transform itemContent;
@@ -36,11 +39,13 @@ namespace BlueGravity.Inventory.Seller
         {
             GameObject obj = Instantiate(inventoryItemPrefab, itemContent);
 
-            var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
             var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
+            var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
+            var itemValue = obj.transform.Find("Item Value").GetComponent<TMP_Text>();
 
-            itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
+            itemName.text = item.itemName;
+            itemValue.text = "$" + item.value;
         }
 
         private void SetInventoryItems()
@@ -63,6 +68,11 @@ namespace BlueGravity.Inventory.Seller
         public void RemoveItem(Item item)
         {
             items.Remove(item);
+        }
+
+        public void UpdateCoinsUI(int value)
+        {
+            coinsText.text = "Coins: " + value;
         }
     }
 }

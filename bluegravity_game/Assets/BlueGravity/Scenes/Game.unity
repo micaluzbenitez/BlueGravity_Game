@@ -6748,8 +6748,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.500004, y: -265}
-  m_SizeDelta: {x: -50.999992, y: -560}
+  m_AnchoredPosition: {x: -134.5, y: -265}
+  m_SizeDelta: {x: -331, y: -560}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &645820007
 MonoBehaviour:
@@ -6834,7 +6834,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.000015258789, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17994,10 +17994,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e145fdbc935d8e649a1fc912a2cce0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinsText: {fileID: 395566577}
   inventoryItemPrefab: {fileID: 7318837024141164431, guid: 3b53a5ffc4d7e69468eabe536c383e16, type: 3}
   itemContent: {fileID: 1262658829}
   items:
   - {fileID: 11400000, guid: 1ce67cebb7c007e43b0413901175c069, type: 2}
+  - {fileID: 11400000, guid: d454c4348a79c5b42b6e14132ddff5da, type: 2}
+  - {fileID: 11400000, guid: a71eec7c8b21b0842a40d8dd4cd1d9ec, type: 2}
+  - {fileID: 11400000, guid: fa1af0e7d238035438c79d2c7ec16fc2, type: 2}
+  - {fileID: 11400000, guid: ad02d4a4dc947234992f0cab49127f5e, type: 2}
+  - {fileID: 11400000, guid: d350789196a8be449a3b43d36b0a9122, type: 2}
+  - {fileID: 11400000, guid: 0328df23e664cab4d9bcda9ce1e5fb84, type: 2}
+  - {fileID: 11400000, guid: b97c75203f3f8a947b3133c3adc47fca, type: 2}
 --- !u!1001 &940287592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20357,7 +20365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1447925022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20834,7 +20842,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 10}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1551329218
 MonoBehaviour:
@@ -22967,14 +22975,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 938045938}
     - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
-      propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
-      propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
       propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -22987,24 +22987,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 362301512}
     - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
-      propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
       propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
-      propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UnpauseGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
-      propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BlueGravity.UI.UIGame, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080874615516557848, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
-      propertyPath: OnCloseInventory.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4112715193071130726, guid: 0ba01bf12e768f940a064ad5a8943c7a, type: 3}
       propertyPath: m_RootOrder
@@ -23344,6 +23328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4702778524861886392, guid: f1a2a45f5e5acf84b8ffc4b28811441f, type: 3}
+      propertyPath: coinsText
+      value: 
+      objectReference: {fileID: 645820007}
     - target: {fileID: 4702778524861886392, guid: f1a2a45f5e5acf84b8ffc4b28811441f, type: 3}
       propertyPath: itemContent
       value: 

@@ -3,13 +3,14 @@ using BlueGravity.Toolbox;
 using BlueGravity.Inventory;
 using BlueGravity.Inventory.ClothesInventory;
 using UnityEngine;
+using BlueGravity.Inventory.Seller;
 
 namespace BlueGravity.Entities.Player
 {
     public class PlayerInventory : MonoBehaviourSingleton<PlayerInventory>
     {
         [Header("Coins")]
-        [SerializeField] private float initialCoins;
+        [SerializeField] private int coins;
 
         // Clothes
         public GameObject currentOutClothes { get; private set; }
@@ -27,6 +28,12 @@ namespace BlueGravity.Entities.Player
         {
             base.Awake();
             playerMovement = GetComponent<PlayerMovement>();
+        }
+
+        public void OpenInventory()
+        {
+            InventoryManager.Instance.UpdateCoinsUI(this.coins);
+            InventoryManager.Instance.OpenInventory();
         }
 
         public void WearClothes(Item item)
@@ -64,6 +71,24 @@ namespace BlueGravity.Entities.Player
         {
             currentTool = tool;
             OnToolEquiped?.Invoke(tool);
+        }
+
+        public int GetCoins()
+        {
+            return coins;
+        }
+
+        public void Sell(int coins)
+        {
+            this.coins += coins;
+            InventoryManager.Instance.UpdateCoinsUI(this.coins);
+        }
+
+        public void Buy(int coins)
+        {
+
+            this.coins -= coins;
+            InventoryManager.Instance.UpdateCoinsUI(this.coins);
         }
     }
 }

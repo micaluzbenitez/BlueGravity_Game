@@ -1,4 +1,5 @@
-using BlueGravity.Entities.Player;
+using BlueGravity.Inventory;
+using BlueGravity.Inventory.Seller;
 using BlueGravity.Toolbox;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,17 +9,13 @@ namespace BlueGravity.Entities.Seller
     public class SellerInventory : MonoBehaviourSingleton<SellerInventory>
     {
         [Header("Coins")]
-        [SerializeField] private float initialCoins;
+        [SerializeField] private int coins;
 
         [Header("UI")]
         [SerializeField] private GameObject UI;
 
         [Header("Inventory")]
         [SerializeField] private GameObject sellerInventory;
-
-        [Header("Events")]
-        [SerializeField] private UnityEvent OnOpenInventory;
-        [SerializeField] private UnityEvent OnCloseInventory;
 
         private bool collidingPlayer = false;
 
@@ -64,13 +61,30 @@ namespace BlueGravity.Entities.Seller
         private void OpenInventory()
         {
             sellerInventory.SetActive(true);
-            OnOpenInventory?.Invoke();
+            SellerInventoryManager.Instance.UpdateCoinsUI(coins);
         }
 
         private void CloseInventory()
         {
             sellerInventory.SetActive(false);
-            OnCloseInventory?.Invoke();
+        }
+
+        public int GetCoins()
+        {
+            return coins;
+        }
+
+        public void Sell(int coins)
+        {
+            this.coins += coins;
+            SellerInventoryManager.Instance.UpdateCoinsUI(this.coins);
+        }
+
+        public void Buy(int coins)
+        {
+
+            this.coins -= coins;
+            SellerInventoryManager.Instance.UpdateCoinsUI(this.coins);
         }
     }
 }

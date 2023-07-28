@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using BlueGravity.Entities.Player;
+using BlueGravity.Entities.Seller;
+using BlueGravity.Inventory.Seller;
 
 namespace BlueGravity.Inventory
 {
@@ -24,18 +26,30 @@ namespace BlueGravity.Inventory
 
         public void UseItem()
         {
-            switch (item.itemType)
+            if (SellerInventory.Instance.gameObject.activeSelf)
             {
-                case Item.ITEM_TYPE.Clothes:
-                    PlayerInventory.Instance.WearClothes(item);
-                    break;
+                if (SellerInventory.Instance.GetCoins() < item.value) return;
 
-                case Item.ITEM_TYPE.Tool:
-                    PlayerInventory.Instance.EquipTool(item);
-                    break;
+                PlayerInventory.Instance.Sell(item.value);
+                SellerInventory.Instance.Buy(item.value);
+                SellerInventoryManager.Instance.AddItem(item);
+                RemoveItem();
+            }
+            else
+            {
+                switch (item.itemType)
+                {
+                    case Item.ITEM_TYPE.Clothes:
+                        PlayerInventory.Instance.WearClothes(item);
+                        break;
 
-                case Item.ITEM_TYPE.Material:
-                    break;
+                    case Item.ITEM_TYPE.Tool:
+                        PlayerInventory.Instance.EquipTool(item);
+                        break;
+
+                    case Item.ITEM_TYPE.Material:
+                        break;
+                }
             }
         }
     }

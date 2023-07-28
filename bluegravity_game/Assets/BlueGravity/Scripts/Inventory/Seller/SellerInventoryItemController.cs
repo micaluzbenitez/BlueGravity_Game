@@ -1,3 +1,5 @@
+using BlueGravity.Entities.Player;
+using BlueGravity.Entities.Seller;
 using UnityEngine;
 
 namespace BlueGravity.Inventory.Seller
@@ -19,6 +21,10 @@ namespace BlueGravity.Inventory.Seller
 
         public void UseItem()
         {
+            if (PlayerInventory.Instance.GetCoins() < item.value) return;
+
+            PlayerInventory.Instance.Buy(item.value);
+            SellerInventory.Instance.Sell(item.value);
             InventoryManager.Instance.AddItem(item);
             RemoveItem();
         }
