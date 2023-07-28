@@ -26,16 +26,21 @@ namespace BlueGravity.Inventory.Seller
             // Load inventory content
             foreach (var item in items)
             {
-                GameObject obj = Instantiate(inventoryItemPrefab, itemContent);
-
-                var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
-                var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
-
-                itemName.text = item.itemName;
-                itemIcon.sprite = item.icon;
+                ListItem(item);
             }
 
             SetInventoryItems();
+        }
+
+        private void ListItem(Item item)
+        {
+            GameObject obj = Instantiate(inventoryItemPrefab, itemContent);
+
+            var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
+            var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
+
+            itemName.text = item.itemName;
+            itemIcon.sprite = item.icon;
         }
 
         private void SetInventoryItems()
@@ -51,6 +56,8 @@ namespace BlueGravity.Inventory.Seller
         public void AddItem(Item item)
         {
             items.Add(item);
+            ListItem(item);
+            SetInventoryItems();
         }
 
         public void RemoveItem(Item item)

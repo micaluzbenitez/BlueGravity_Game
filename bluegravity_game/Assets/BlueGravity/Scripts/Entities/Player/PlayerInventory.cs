@@ -8,6 +8,9 @@ namespace BlueGravity.Entities.Player
 {
     public class PlayerInventory : MonoBehaviourSingleton<PlayerInventory>
     {
+        [Header("Coins")]
+        [SerializeField] private float initialCoins;
+
         // Clothes
         public GameObject currentOutClothes { get; private set; }
         public GameObject currentHarClothes { get; private set; }

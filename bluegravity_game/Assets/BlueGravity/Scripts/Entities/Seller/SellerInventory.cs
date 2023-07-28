@@ -1,10 +1,15 @@
+using BlueGravity.Entities.Player;
+using BlueGravity.Toolbox;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace BlueGravity.Entities.Seller
 {
-    public class SellerInventory : MonoBehaviour
+    public class SellerInventory : MonoBehaviourSingleton<SellerInventory>
     {
+        [Header("Coins")]
+        [SerializeField] private float initialCoins;
+
         [Header("UI")]
         [SerializeField] private GameObject UI;
 

@@ -19,9 +19,51 @@ namespace BlueGravity.Inventory
 
         private InventoryItemController[] inventoryItemControllers;
 
+        public void OpenInventory()
+        {
+            // Clean inventory content
+            foreach (Transform item in itemContent)
+            {
+                Destroy(item.gameObject);
+            }
+
+            // Load inventory content
+            foreach (var item in items)
+            {
+                ListItem(item);
+            }
+
+            SetInventoryItems();
+        }
+
+        private void ListItem(Item item)
+        {
+            GameObject obj = Instantiate(inventoryItemPrefab, itemContent);
+
+            var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
+            var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
+            var removeButton = obj.transform.Find("Remove Button").GetComponent<Button>();
+
+            itemName.text = item.itemName;
+            itemIcon.sprite = item.icon;
+            removeButton.gameObject.SetActive(enableRemove.isOn);
+        }
+
+        private void SetInventoryItems()
+        {
+            inventoryItemControllers = itemContent.GetComponentsInChildren<InventoryItemController>();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                inventoryItemControllers[i].AddItem(items[i]);
+            }
+        }
+
         public void AddItem(Item item)
         {
             items.Add(item);
+            ListItem(item);
+            SetInventoryItems();
         }
 
         public void RemoveItem(Item item)
@@ -34,41 +76,6 @@ namespace BlueGravity.Inventory
             foreach (Transform item in itemContent)
             {
                 item.Find("Remove Button").gameObject.SetActive(enableRemove.isOn);
-            }
-        }
-
-        public void ListItems()
-        {
-            // Clean inventory content
-            foreach (Transform item in itemContent)
-            {
-                Destroy(item.gameObject);
-            }
-
-            // Load inventory content
-            foreach (var item in items)
-            {
-                GameObject obj = Instantiate(inventoryItemPrefab, itemContent);
-
-                var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
-                var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
-                var removeButton = obj.transform.Find("Remove Button").GetComponent<Button>();
-
-                itemName.text = item.itemName;
-                itemIcon.sprite = item.icon;
-                removeButton.gameObject.SetActive(enableRemove.isOn);
-            }
-
-            SetInventoryItems();
-        }
-
-        public void SetInventoryItems()
-        {
-            inventoryItemControllers = itemContent.GetComponentsInChildren<InventoryItemController>();
-
-            for (int i = 0; i < items.Count; i++)
-            {
-                inventoryItemControllers[i].AddItem(items[i]);
             }
         }
     }
