@@ -30,7 +30,7 @@ namespace BlueGravity.Inventory
                     PlayerInventory.Instance.WearClothes();
                     break;
                 case Item.ITEM_TYPE.Tool:
-                    PlayerInventory.Instance.EquipTool();
+                    PlayerInventory.Instance.EquipTool(item);
                     break;
                 case Item.ITEM_TYPE.Material:
                     break;
