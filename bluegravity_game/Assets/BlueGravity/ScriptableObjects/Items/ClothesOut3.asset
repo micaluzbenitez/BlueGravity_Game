@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClothesOut3
   m_EditorClassIdentifier: 
   id: 12
-  itemName: Out3
+  itemName: Green Suit
   value: 40
   icon: {fileID: -330637305, guid: 8d6aecd79327a5443a21c582ddba77bd, type: 3}
   itemType: 0

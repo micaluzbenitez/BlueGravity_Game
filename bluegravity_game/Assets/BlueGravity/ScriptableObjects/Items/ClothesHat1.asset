@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClothesHat1
   m_EditorClassIdentifier: 
   id: 8
-  itemName: Hat1
+  itemName: Farm Hat
   value: 30
   icon: {fileID: -2102333788, guid: ae06e5a40e468674aa8da8bb0e0c485c, type: 3}
   itemType: 0

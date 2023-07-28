@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClothesHar1
   m_EditorClassIdentifier: 
   id: 6
-  itemName: Har1
+  itemName: Long Hair
   value: 10
   icon: {fileID: 1881083005, guid: 1e0c08732aabdc54e87cb105f610dbb6, type: 3}
   itemType: 0

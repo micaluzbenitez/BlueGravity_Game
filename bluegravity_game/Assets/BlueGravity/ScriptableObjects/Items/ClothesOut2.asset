@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClothesOut2
   m_EditorClassIdentifier: 
   id: 11
-  itemName: Out2
+  itemName: Orange Suit
   value: 30
   icon: {fileID: 1853639385, guid: baacc0239821c33478d270527e460f23, type: 3}
   itemType: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClothesOut1
   m_EditorClassIdentifier: 
   id: 10
-  itemName: Out1
+  itemName: Boy Underwear
   value: 20
   icon: {fileID: 34825040, guid: 8b38db889c9d1684aaa49d24289ea9c7, type: 3}
   itemType: 0

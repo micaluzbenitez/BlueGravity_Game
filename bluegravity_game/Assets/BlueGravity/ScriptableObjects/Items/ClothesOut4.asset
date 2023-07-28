@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClothesOut4
   m_EditorClassIdentifier: 
   id: 13
-  itemName: Out4
+  itemName: Girl Underwear
   value: 50
   icon: {fileID: -1642290282, guid: 1b6fc815f1a1f6e478135eae1f0a2fbb, type: 3}
   itemType: 0

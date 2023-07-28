@@ -18,6 +18,7 @@ namespace BlueGravity.Inventory
             if (collidingPlayer && Input.GetKeyDown(KeyCode.E)) CheckPickUp();
         }
 
+#region Player_Detection
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Player")) collidingPlayer = true;
@@ -37,6 +38,7 @@ namespace BlueGravity.Inventory
         {
             if (collision.gameObject.CompareTag("Player")) collidingPlayer = false;
         }
+#endregion
 
         private void CheckPickUp()
         {

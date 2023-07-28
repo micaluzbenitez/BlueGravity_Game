@@ -45,7 +45,7 @@ namespace BlueGravity.Inventory
                 var itemIcon = obj.transform.Find("Item Icon").GetComponent<Image>();
                 var removeButton = obj.transform.Find("Remove Button").GetComponent<Button>();
 
-                itemName.text= item.name;
+                itemName.text= item.itemName;
                 itemIcon.sprite = item.icon;
                 removeButton.gameObject.SetActive(enableRemove.isOn);
             }

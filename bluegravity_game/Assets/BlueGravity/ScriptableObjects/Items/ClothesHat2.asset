@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClothesHat2
   m_EditorClassIdentifier: 
   id: 9
-  itemName: Hat2
+  itemName: Witcher Hat
   value: 35
   icon: {fileID: 712417535, guid: 78cda6aa52f966f43bf920dd5aa368c0, type: 3}
   itemType: 0
