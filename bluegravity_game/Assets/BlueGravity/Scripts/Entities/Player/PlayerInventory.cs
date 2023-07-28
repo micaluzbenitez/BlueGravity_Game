@@ -3,7 +3,6 @@ using BlueGravity.Toolbox;
 using BlueGravity.Inventory;
 using BlueGravity.Inventory.ClothesInventory;
 using UnityEngine;
-using BlueGravity.Inventory.Seller;
 
 namespace BlueGravity.Entities.Player
 {

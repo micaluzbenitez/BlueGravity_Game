@@ -1,8 +1,6 @@
-using BlueGravity.Inventory;
 using BlueGravity.Inventory.Seller;
 using BlueGravity.Toolbox;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace BlueGravity.Entities.Seller
 {
