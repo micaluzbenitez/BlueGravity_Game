@@ -7,7 +7,7 @@ namespace BlueGravity.Entities.Player
 {
     public class PlayerInventory : MonoBehaviourSingleton<PlayerInventory>
     {
-        [SerializeField] private Item currentTool;
+        public Item currentTool { get; private set; }
 
         public Action<Item> OnToolEquiped;
 

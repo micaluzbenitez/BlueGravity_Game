@@ -139,3 +139,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 8ae70a038ad1dd145b60c8febe1fd35d, type: 2}
+  toolToPickUp: {fileID: 11400000, guid: 4abb75d41094d084da45873425f9fb6d, type: 2}
