@@ -67,7 +67,7 @@ namespace BlueGravity.Entities.Seller
             openInventory = true;
         }
 
-        private void CloseInventory()
+        public void CloseInventory()
         {
             sellerInventory.SetActive(false);
             openInventory = false;
