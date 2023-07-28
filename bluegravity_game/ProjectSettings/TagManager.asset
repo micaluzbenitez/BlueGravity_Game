@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PickableItem
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 4074573825
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Construction
+    uniqueID: 3390559049
+    locked: 0
+  - name: Objects
+    uniqueID: 413932287
+    locked: 0
+  - name: Entities
+    uniqueID: 1270430563
     locked: 0
