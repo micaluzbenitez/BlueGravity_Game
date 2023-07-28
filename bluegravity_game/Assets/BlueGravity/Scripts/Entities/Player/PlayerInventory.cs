@@ -9,13 +9,9 @@ namespace BlueGravity.Entities.Player
     public class PlayerInventory : MonoBehaviourSingleton<PlayerInventory>
     {
         // Clothes
-        public GameObject currentOutClothes;// { get; private set; }
-        public GameObject currentHarClothes;// { get; private set; }
-        public GameObject currentHatClothes;// { get; private set; }
-
-        private GameObject instantiateOutClothes;
-        private GameObject instantiateHarClothes;
-        private GameObject instantiateHatClothes;
+        public GameObject currentOutClothes { get; private set; }
+        public GameObject currentHarClothes { get; private set; }
+        public GameObject currentHatClothes { get; private set; }
 
         // Tool
         public Item currentTool { get; private set; }
@@ -35,22 +31,24 @@ namespace BlueGravity.Entities.Player
             switch (item.clothes.clothesType)
             {
                 case Clothes.CLOTHES_TYPE.Out:
-                    EquipClothes(item, currentOutClothes, instantiateOutClothes);
+                    currentOutClothes = item.clothes.prefab;
+                    EquipClothes(currentOutClothes);
                     break;
                 case Clothes.CLOTHES_TYPE.Har:
-                    EquipClothes(item, currentHarClothes, instantiateHarClothes);
+                    currentHarClothes = item.clothes.prefab;
+                    EquipClothes(currentHarClothes);
                     break;
                 case Clothes.CLOTHES_TYPE.Hat:
-                    EquipClothes(item, currentHatClothes, instantiateHatClothes);
+                    currentHatClothes = item.clothes.prefab;
+                    EquipClothes(currentHatClothes);
                     break;
             }
         }
 
-        public void EquipClothes(Item item, GameObject clothes, GameObject instantiateObj)
+        public void EquipClothes(GameObject clothes)
         {
             //if (clothes) clothes.GetComponent<ClothesController>().RemoveClothes();
 
-            clothes = item.clothes.prefab;
             GameObject obj = Instantiate(clothes);
             obj.transform.SetParent(transform);
             obj.transform.localPosition = Vector2.zero;

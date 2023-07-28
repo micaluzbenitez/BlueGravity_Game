@@ -1,21 +1,20 @@
-using BlueGravity.Entities.Player;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace BlueGravity.Inventory
+namespace BlueGravity.Entities
 {
-    public class ItemPick : MonoBehaviour
+    public class Seller : MonoBehaviour
     {
-        [Header("Item")]
-        [SerializeField] private Item item;
-
-        [Header("Tool")]
-        [SerializeField, Tooltip("Leave empty if it don't need")] private Item toolToPickUp;
+        [Header("UI")]
+        [SerializeField] private GameObject UI;
 
         private bool collidingPlayer = false;
 
         private void Update()
         {
-            if (collidingPlayer && Input.GetKeyDown(KeyCode.E)) CheckPickUp();
+            if (collidingPlayer && Input.GetKeyDown(KeyCode.E)) OpenInventory();
+            UpdateUI();
         }
 
         #region Player_Detection
@@ -40,22 +39,15 @@ namespace BlueGravity.Inventory
         }
         #endregion
 
-        private void CheckPickUp()
+        private void UpdateUI()
         {
-            if (toolToPickUp)
-            {
-                if (PlayerInventory.Instance.currentTool == toolToPickUp) PickUpItem();
-            }
-            else
-            {
-                PickUpItem();
-            }
+            if (collidingPlayer) UI.SetActive(true);
+            else UI.SetActive(false);
         }
 
-        private void PickUpItem()
-        {            
-            InventoryManager.Instance.AddItem(item);
-            Destroy(gameObject);
+        private void OpenInventory()
+        {
+            Debug.Log("open inventory");
         }
     }
 }
